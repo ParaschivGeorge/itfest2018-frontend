@@ -68,7 +68,8 @@ export class AuthPageComponent implements OnInit {
     this.user = {
       username: '',
       email: this.loginForm.value.email,
-      password: this.loginForm.value.password
+      password: this.loginForm.value.password,
+      isMedic: false
     };
     if (!this.loginForm.get('email').valid) {
       this.errMsg = 'Invalid email!';
