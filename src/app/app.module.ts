@@ -26,6 +26,8 @@ import { AuthInterceptor } from './interceptor';
 import { GetRoomsService } from './services/get-rooms.service';
 import { DoctorPatientListComponent } from './doctor-patient-list/doctor-patient-list.component';
 import { UsersService } from './services/users.service';
+import { UserItemComponent } from './user-item/user-item.component';
+import { SearchByUserNamePipe } from './search-by-user-name.pipe';
 
 
 const appRoutes: Routes = [
@@ -50,7 +52,9 @@ const appRoutes: Routes = [
     NavBarComponent,
     UserReservationsComponent,
     SpreadsheetComponent,
-    DoctorPatientListComponent
+    DoctorPatientListComponent,
+    UserItemComponent,
+    SearchByUserNamePipe
   ],
   imports: [
     MaterializeModule,

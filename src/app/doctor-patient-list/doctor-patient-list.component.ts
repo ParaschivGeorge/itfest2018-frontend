@@ -9,16 +9,13 @@ import { UsersService } from '../services/users.service';
 })
 export class DoctorPatientListComponent implements OnInit {
   userList
+  searchText
   SearchForm: FormGroup;
   constructor(private userService: UsersService) { }
 
   ngOnInit() {
-    this.SearchForm = new FormGroup({
-      'search' : new FormControl(null,  Validators.required)
-    });
-    this.userService.getUserList().subscribe(resp =>  console.log(resp);
-    
-    
+    this.userService.getUserList().subscribe(resp =>  this.userList = resp)
+
   }
 
   search() {
