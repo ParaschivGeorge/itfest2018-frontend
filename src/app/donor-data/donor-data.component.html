@@ -1,12 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col s12 center-align" >
-        <button type="button" style="min-width: 60%;" class="btn btn-default" *ngIf="!nextDonationDate" [routerLink]="['/donor-form']" routerLinkActive="router-link-active" >Take the donation form</button>
-    </div>
     <ul class="collection">
         <div class="col m4">
             <li class="collection-item center-align" *ngIf="username"> <i class="material-icons big circle red">person</i><b> <br><h4>{{username}}
-              <br>
+              <br>  
                 <button class="btn" (click)="logout()">Logout</button>
             </h4></b></li>
             <li class="collection-item" *ngIf="reservation"><h5>Reservation date  {{reservation.date}}  {{getReservationTime(reservation.time)}}</h5></li>
@@ -14,9 +11,12 @@
             <li class="collection-item"  *ngIf="lastDonationDate"><h5> Donated last time on: {{lastDonationDate}}</h5></li>
             <li class="collection-item" *ngIf="nextDonationDate"> <h5> Next posible donation on: {{nextDonationDate}} </h5></li>      
           </div>
-          <div class="col m8" *ngIf="dataLocalUrl">
+          <div class="col m8" *ngIf="nextDonationDate">
             <iframe id="pdf" [attr.src]="dataLocalUrl" type="application/pdf" frameborder="0"></iframe>
           </div>
         </ul>
+        <div class="col s12 center-align" >
+            <button type="button" style="min-width: 60%;" class="btn btn-default" *ngIf="!nextDonationDate" [routerLink]="['/donor-form']" routerLinkActive="router-link-active" >Take the donation form</button>
+        </div>
   </div>
 </div>
