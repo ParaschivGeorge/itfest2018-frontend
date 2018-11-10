@@ -3,6 +3,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Reservation } from '../objects/reservation';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+import { AuthGuardService } from '../services/auth-guard.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-donor-data',
@@ -19,7 +22,7 @@ export class DonorDataComponent implements OnInit {
   reservation: Reservation;
   dataLocalUrl: any;
 
-  constructor(private _http: HttpClient, private domSanitizer: DomSanitizer) { }
+  constructor(private _http: HttpClient, private domSanitizer: DomSanitizer, private auth:AuthService) { }
 
   hours = [{id: 1, hour: '9:00'}, {id: 2, hour: '9:30'}, {id: 3, hour: '10:00'}, {id: 4, hour: '10:30'},
   {id: 5, hour: '11:00'}, {id: 6, hour: '11:30'}, {id: 7, hour: '12:00'}, {id: 8, hour: '12:30'},
@@ -53,6 +56,10 @@ export class DonorDataComponent implements OnInit {
 
   getReservationTime(i: number) {
     return this.hours.filter(hour => hour.id === i)[0].hour;
+  }
+
+  logout() {
+    this.auth.logout()
   }
 
 }
