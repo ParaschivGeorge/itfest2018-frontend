@@ -33,7 +33,7 @@ export class AuthPageComponent implements OnInit {
   registerForm: FormGroup;
   show = false;
   constructor(private auth: AuthService, private render: Renderer2, private router:Router) { }
-
+  doctor = false;
 
   ngOnInit() {
     this.loginForm = new FormGroup({
