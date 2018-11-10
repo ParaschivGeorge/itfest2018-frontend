@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsersService } from '../services/users.service';
+import { AuthGuardService } from '../services/auth-guard.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-doctor-patient-list',
@@ -12,7 +14,7 @@ export class DoctorPatientListComponent implements OnInit {
   searchText=null;
 
   SearchForm: FormGroup;
-  constructor(private userService: UsersService) { }
+  constructor(private userService: UsersService, private auth:AuthService) { }
 
   ngOnInit() {
     this.userService.getUserList().subscribe(resp =>  this.userList = resp)
@@ -26,6 +28,10 @@ export class DoctorPatientListComponent implements OnInit {
 
   clearForm() {
     this.searchText = "search by name"
+  }
+
+  logout() {
+    this.auth.logout()
   }
 
 }

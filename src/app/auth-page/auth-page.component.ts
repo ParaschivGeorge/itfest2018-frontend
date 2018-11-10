@@ -91,7 +91,7 @@ export class AuthPageComponent implements OnInit {
         resp => {
           console.log(resp);
           if (resp.type == "MEDIC") this.router.navigate(['/doctor-patient-list']);
-          else this.router.navigate(['/patient-donor-form']);
+          else this.router.navigate(['/donor-data']);
         },
         err => {
           this.errMsg = err.error;
