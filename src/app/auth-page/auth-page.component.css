@@ -22,6 +22,8 @@
   border-radius: 5px;
   text-align: center;
   padding-top: 80px;
+  border:2px solid #ab2100 ;
+
 }
 
 .titleBarContainer {
@@ -53,6 +55,7 @@
   position: absolute;
   content: '';
   background-color: #ECEFF1;
+  border-bottom: 2px solid  #ab2100;
   border-radius: 50%;
   z-index: -1;
   left: -15px;
@@ -111,7 +114,7 @@
 .formBox {
   padding: 10px 50px 40px 50px;
   overflow: hidden;
-
+  
 }
 
 h4 {
