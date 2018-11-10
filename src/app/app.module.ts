@@ -28,6 +28,7 @@ import { DoctorPatientListComponent } from './doctor-patient-list/doctor-patient
 import { UsersService } from './services/users.service';
 import { UserItemComponent } from './user-item/user-item.component';
 import { SearchByUserNamePipe } from './search-by-user-name.pipe';
+import { UserAnalyseComponent } from './user-analyse/user-analyse.component';
 
 
 const appRoutes: Routes = [
@@ -54,7 +55,8 @@ const appRoutes: Routes = [
     SpreadsheetComponent,
     DoctorPatientListComponent,
     UserItemComponent,
-    SearchByUserNamePipe
+    SearchByUserNamePipe,
+    UserAnalyseComponent
   ],
   imports: [
     MaterializeModule,

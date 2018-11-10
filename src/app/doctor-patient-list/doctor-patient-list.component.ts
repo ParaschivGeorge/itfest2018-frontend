@@ -9,7 +9,8 @@ import { UsersService } from '../services/users.service';
 })
 export class DoctorPatientListComponent implements OnInit {
   userList
-  searchText
+  searchText=null;
+
   SearchForm: FormGroup;
   constructor(private userService: UsersService) { }
 
@@ -24,6 +25,7 @@ export class DoctorPatientListComponent implements OnInit {
   }
 
   clearForm() {
-    this.SearchForm.reset()
+    this.searchText = "search by name"
   }
+
 }
