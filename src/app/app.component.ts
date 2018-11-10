@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, AfterViewInit } from '@angular/core';
 import {MaterializeAction} from 'angular2-materialize';
 declare var $:any;
 /*
@@ -9,8 +9,11 @@ declare var $:any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
+  MODEL_URL = '/assets/models'
   title = 'app';
-  ngOnInit(){}
-}
 
+
+  ngOnInit() {
+  }
+}

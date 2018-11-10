@@ -24,6 +24,8 @@ import { SpreadsheetComponent } from './spreadsheet/spreadsheet.component';
 import { GetReservationsService } from './services/get-reservations.service';
 import { AuthInterceptor } from './interceptor';
 import { GetRoomsService } from './services/get-rooms.service';
+import { SpitalDeviceComponent } from './spital-device/spital-device.component';
+import { DatePipe } from '@angular/common';
 
 
 const appRoutes: Routes = [
@@ -33,7 +35,8 @@ const appRoutes: Routes = [
   { path: 'user-reservations', canActivate: [AuthGuardService], component: UserReservationsComponent },
   { path: 'browse-rooms',canActivate: [AuthGuardService], component: BrowseRoomsComponent},
   { path: 'room-layout',canActivate: [AuthGuardService], component: RoomsLayoutComponent},
-  { path: 'make-reservations',canActivate: [AuthGuardService], component: MakeReservationsComponent}
+  { path: 'make-reservations',canActivate: [AuthGuardService], component: MakeReservationsComponent},
+  { path: 'spital', component: SpitalDeviceComponent},
 ];
 
 @NgModule({
@@ -50,7 +53,8 @@ const appRoutes: Routes = [
     MakeReservationsComponent,
     NavBarComponent,
     UserReservationsComponent,
-    SpreadsheetComponent
+    SpreadsheetComponent,
+    SpitalDeviceComponent
   ],
   imports: [
     MaterializeModule,
@@ -63,7 +67,7 @@ const appRoutes: Routes = [
     FormsModule
   ],
 
-  providers: [GetBgService, AuthGuardService, AuthService, NgModel, GetReservationsService, GetRoomsService,
+  providers: [GetBgService, AuthGuardService, AuthService, NgModel, GetReservationsService, GetRoomsService, DatePipe,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
