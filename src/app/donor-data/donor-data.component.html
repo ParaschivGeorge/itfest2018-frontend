@@ -1,15 +1,22 @@
-<div class="container-fluid">
-  <div class="row" style="height: 100vh">
-    <div class="col m6">
-      <p *ngIf="username">{{username}}</p>
-      <p *ngIf="reservation">{{reservation.date}}  {{getReservationTime(reservation.time)}}</p>
-      <p *ngIf="lastLogindate">Last logged in on: {{lastLogindate}}</p>
-      <p *ngIf="lastDonationDate">Last donated on: {{lastDonationDate}}</p>
-      <p *ngIf="nextDonationDate">Next posible donation on: {{nextDonationDate}}</p>      
-      <button type="button" class="btn btn-default" *ngIf="!nextDonationDate" [routerLink]="['/donor-form']" routerLinkActive="router-link-active" >Take the donation form</button>
+<div class="container">
+  <div class="row">
+    <div class="col s12 center-align" >
+        <button type="button" style="min-width: 60%;" class="btn btn-default" *ngIf="!nextDonationDate" [routerLink]="['/donor-form']" routerLinkActive="router-link-active" >Take the donation form</button>
     </div>
-    <div class="col m6" *ngIf="dataLocalUrl">
-      <iframe [attr.src]="dataLocalUrl" type="application/pdf" frameborder="0" height="1000" width="1000"></iframe>
-    </div>
+    <ul class="collection">
+        <div class="col m4">
+            <li class="collection-item center-align" *ngIf="username"> <i class="material-icons big circle red">person</i><b> <br><h4>{{username}}
+              <br>
+                <button class="btn" (click)="logout()">Logout</button>
+            </h4></b></li>
+            <li class="collection-item" *ngIf="reservation"><h5>Reservation date  {{reservation.date}}  {{getReservationTime(reservation.time)}}</h5></li>
+            <!-- <li class="collection-item" *ngIf="lastLogindate">Last logged in on: {{lastLogindate}}</li> -->
+            <li class="collection-item"  *ngIf="lastDonationDate"><h5> Donated last time on: {{lastDonationDate}}</h5></li>
+            <li class="collection-item" *ngIf="nextDonationDate"> <h5> Next posible donation on: {{nextDonationDate}} </h5></li>      
+          </div>
+          <div class="col m8" *ngIf="dataLocalUrl">
+            <iframe id="pdf" [attr.src]="dataLocalUrl" type="application/pdf" frameborder="0"></iframe>
+          </div>
+        </ul>
   </div>
 </div>
