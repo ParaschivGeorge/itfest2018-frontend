@@ -26,18 +26,18 @@ export class AuthService {
    return this.http.post(environment.apiUrl + '/register', user);
   }
 
-  private logUser(token, user){
+  private logUser(user){
     this.userStatus = true;
-    this.token = token;
-    localStorage.setItem('token', token);
+    this.token = user.token;
+    localStorage.setItem('token', user.token);
     localStorage.setItem('email', user.email);
 
-    return this.userStatus;
+    return user.user;
   }
 
   login(user:User) {
     return this.http.post<LoginResponse>(environment.apiUrl + '/login', {email:user.email, password:user.password})
-      .map(resp => this.logUser(resp.token, user))
+      .map(resp => this.logUser(resp))
   }
 
   logout(){

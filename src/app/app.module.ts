@@ -22,6 +22,10 @@ import { GetReservationsService } from './services/get-reservations.service';
 import { AuthInterceptor } from './interceptor';
 import { GetRoomsService } from './services/get-rooms.service';
 import { DoctorPatientListComponent } from './doctor-patient-list/doctor-patient-list.component';
+import { UsersService } from './services/users.service';
+import { UserItemComponent } from './user-item/user-item.component';
+import { SearchByUserNamePipe } from './search-by-user-name.pipe';
+import { UserAnalyseComponent } from './user-analyse/user-analyse.component';
 import { DonorFormComponent } from './donor-form/donor-form.component';
 import { DonorReservationFormComponent } from './donor-reservation-form/donor-reservation-form.component';
 
@@ -47,6 +51,10 @@ const appRoutes: Routes = [
     RoomsLayoutComponent,
     NavBarComponent,
     DoctorPatientListComponent,
+    UserItemComponent,
+    SearchByUserNamePipe,
+    UserAnalyseComponent,
+    DoctorPatientListComponent,
     DonorFormComponent,
     DonorReservationFormComponent
   ],
@@ -61,7 +69,7 @@ const appRoutes: Routes = [
     FormsModule
   ],
 
-  providers: [GetBgService, AuthGuardService, AuthService, NgModel, GetReservationsService, GetRoomsService,
+  providers: [GetBgService, AuthGuardService, AuthService, NgModel, GetReservationsService, GetRoomsService, UsersService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
