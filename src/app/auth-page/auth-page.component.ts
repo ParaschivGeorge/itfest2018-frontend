@@ -90,7 +90,8 @@ export class AuthPageComponent implements OnInit {
       this.auth.login(this.user).subscribe(
         resp => {
           console.log(resp);
-          this.router.navigate(['/manage-reservations']);
+          if (resp.type == "MEDIC") this.router.navigate(['/doctor-patient-list']);
+          else this.router.navigate(['/patient-donor-form']);
         },
         err => {
           this.errMsg = err.error;
