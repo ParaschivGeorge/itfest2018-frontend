@@ -15,17 +15,15 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { ReactiveFormsModule, FormControl, NgModel, FormsModule } from '@angular/forms';
 import { ManageReservationsComponent } from './manage-reservations/manage-reservations.component';
-import { UserReservationsComponent } from './user-reservations/user-reservations.component';
 import { BrowseRoomsComponent } from './browse-rooms/browse-rooms.component';
 import { RoomsLayoutComponent } from './rooms-layout/rooms-layout.component';
-import { MakeReservationsComponent } from './make-reservations/make-reservations.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { SpreadsheetComponent } from './spreadsheet/spreadsheet.component';
 import { GetReservationsService } from './services/get-reservations.service';
 import { AuthInterceptor } from './interceptor';
 import { GetRoomsService } from './services/get-rooms.service';
 import { DoctorPatientListComponent } from './doctor-patient-list/doctor-patient-list.component';
 import { DonorFormComponent } from './donor-form/donor-form.component';
+import { DonorReservationFormComponent } from './donor-reservation-form/donor-reservation-form.component';
 
 
 const appRoutes: Routes = [
@@ -33,6 +31,7 @@ const appRoutes: Routes = [
   { path: 'login', component: AuthPageComponent },
   { path: 'doctor-patient-list', canActivate: [AuthGuardService], component: DoctorPatientListComponent },
   { path: 'donor-form', canActivate: [AuthGuardService], component: DonorFormComponent },
+  { path: 'donor-reservartion', canActivate: [AuthGuardService], component: DonorReservationFormComponent },
 
 ];
 
@@ -44,15 +43,12 @@ const appRoutes: Routes = [
     FeedComponent,
     AuthPageComponent,
     ManageReservationsComponent,
-    UserReservationsComponent,
     BrowseRoomsComponent,
     RoomsLayoutComponent,
-    MakeReservationsComponent,
     NavBarComponent,
-    UserReservationsComponent,
-    SpreadsheetComponent,
     DoctorPatientListComponent,
-    DonorFormComponent
+    DonorFormComponent,
+    DonorReservationFormComponent
   ],
   imports: [
     MaterializeModule,
