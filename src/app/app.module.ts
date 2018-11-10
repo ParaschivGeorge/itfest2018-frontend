@@ -25,6 +25,7 @@ import { GetReservationsService } from './services/get-reservations.service';
 import { AuthInterceptor } from './interceptor';
 import { GetRoomsService } from './services/get-rooms.service';
 import { DoctorPatientListComponent } from './doctor-patient-list/doctor-patient-list.component';
+import { UsersService } from './services/users.service';
 
 
 const appRoutes: Routes = [
@@ -62,7 +63,7 @@ const appRoutes: Routes = [
     FormsModule
   ],
 
-  providers: [GetBgService, AuthGuardService, AuthService, NgModel, GetReservationsService, GetRoomsService,
+  providers: [GetBgService, AuthGuardService, AuthService, NgModel, GetReservationsService, GetRoomsService, UsersService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
