@@ -24,6 +24,7 @@ import { GetRoomsService } from './services/get-rooms.service';
 import { DoctorPatientListComponent } from './doctor-patient-list/doctor-patient-list.component';
 import { DonorFormComponent } from './donor-form/donor-form.component';
 import { DonorReservationFormComponent } from './donor-reservation-form/donor-reservation-form.component';
+import { DonorDataComponent } from './donor-data/donor-data.component';
 
 
 const appRoutes: Routes = [
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
   { path: 'doctor-patient-list', canActivate: [AuthGuardService], component: DoctorPatientListComponent },
   { path: 'donor-form', canActivate: [AuthGuardService], component: DonorFormComponent },
   { path: 'donor-reservartion', canActivate: [AuthGuardService], component: DonorReservationFormComponent },
+  { path: 'donor-data', canActivate: [AuthGuardService], component: DonorDataComponent },
 
 ];
 
@@ -48,7 +50,8 @@ const appRoutes: Routes = [
     NavBarComponent,
     DoctorPatientListComponent,
     DonorFormComponent,
-    DonorReservationFormComponent
+    DonorReservationFormComponent,
+    DonorDataComponent
   ],
   imports: [
     MaterializeModule,
