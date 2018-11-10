@@ -1,0 +1,18 @@
+html, body{
+   height: 100%;
+}
+
+/* sets global color palette 
+   #A6E275 light
+   #7EC146
+   #61AA25
+   #2E6500 dark
+*/
+
+nav, .btn  {
+  background-color:#ab2100 !important;
+}
+
+.btn:hover {
+  background-color:#cc2800 !important;
+}

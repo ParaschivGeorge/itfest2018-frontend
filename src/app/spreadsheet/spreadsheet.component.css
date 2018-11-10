@@ -1,0 +1,29 @@
+.grid-example {
+    border-left: 1px solid #eee;
+    text-align: center;
+    line-height: 50px;
+    font-size: 22px;
+    max-height: 50px;
+    background-color: #61AA25;
+    color: white;
+    padding: 0;
+}
+
+.color {
+    background-color: #61AA25;
+    max-height: 51px;
+}
+
+.row {
+    margin-bottom: 0px;
+}
+
+.btn {
+    height: 48px;
+}
+
+.hour-col {
+    background-color: #61AA25;
+    min-height: 50px;
+    color: white;
+}

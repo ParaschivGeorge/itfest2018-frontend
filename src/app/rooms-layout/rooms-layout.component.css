@@ -1,0 +1,277 @@
+html, body{
+    height: 100%;
+    width: 100%;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#container{
+    text-align:center;
+    font-weight:bold;
+    /* border:2px solid black; */
+   
+    /* background-color:rgb(47,151,132); */
+    background-color: Gainsboro;
+}
+
+.col, .row{
+    padding: 10px !important;
+    margin: 0 !important;
+}	
+
+#rooms {
+    height: auto;
+    transition: transform .1s;
+}
+
+#rooms:hover {
+    transform: scale(1.05); 
+}
+
+#berlin {
+    background: url("../../assets/img/berlin.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#paris {
+    background: url("../../assets/img/paris.jpg");
+    background-size:cover;
+    background-position: center center; 
+    background-repeat:no-repeat;
+    height:100%;
+    width:100%;
+}
+
+#copenhagen {
+    background: url("../../assets/img/copenhagen.jpg");
+    background-size:cover;
+    background-position: center center;
+    background-repeat:no-repeat; 
+    height:100%;
+    width:100%;
+}
+
+#kiev {
+    background: url("../../assets/img/kiev.jpg");
+    background-size:cover;
+    background-position: center center; 
+    background-repeat:no-repeat;
+    height:100%;
+    width:100%;
+}
+
+#bucharest {
+    background: url("../../assets/img/bucharest.jpg");
+    background-size:cover;
+    background-position: center center; 
+    background-repeat:no-repeat;
+    height:100%;
+    width:100%;
+}
+
+#stockholm {
+    background: url("../../assets/img/stockholm.jpg");
+    background-size:cover;
+    background-position: center center;
+    background-repeat:no-repeat; 
+    height:100%;
+    width:100%;
+}
+
+#rome {
+    background: url("../../assets/img/rome.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+
+#budapest {
+    background: url("../../assets/img/budapest.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#madrid {
+    background: url("../../assets/img/madrid.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+
+#london {
+    background: url("../../assets/img/london.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#sofia {
+    background: url("../../assets/img/sofia.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#minsk {
+    background: url("../../assets/img/minsk.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#amsterdam {
+    background: url("../../assets/img/amsterdam.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+
+#chisinau {
+    background: url("../../assets/img/chisinau.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#athens {
+    background: url("../../assets/img/athens.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#helsinki {
+    background: url("../../assets/img/helsinki.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#san_marino {
+    background: url("../../assets/img/san_marino.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#vienna {
+    background: url("../../assets/img/vienna.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#chicago {
+    background: url("../../assets/img/chicago.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#washington {
+    background: url("../../assets/img/washington.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#los_angeles {
+        background: url("../../assets/img/los_angeles.jpg");
+        height:100%;
+        width:100%;
+        background-position: center center; 
+        background-size:cover;
+        background-repeat:no-repeat;
+}
+
+#san_francisco{
+    background: url("../../assets/img/san_francisco.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#new_york {
+    background: url("../../assets/img/new_york.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#philadelphia {
+    background: url("../../assets/img/philadelphia.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#layer1 {
+    opacity: 0.5;
+    background-color: black;
+    color: white;
+    height:100%;
+    width:100%;
+}
+#layer1:hover {
+    opacity: 0.8;
+}
+
+h5 {
+    padding-bottom: 20px;
+    margin :0;
+}
+
+h3 {
+    margin-top: 10px;
+    color: green;
+    text-shadow: 2px 2px 4px #2e6500;
+    font-family: "Times New Roman", Times, serif;
+}
