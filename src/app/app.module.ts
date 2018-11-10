@@ -24,16 +24,14 @@ import { SpreadsheetComponent } from './spreadsheet/spreadsheet.component';
 import { GetReservationsService } from './services/get-reservations.service';
 import { AuthInterceptor } from './interceptor';
 import { GetRoomsService } from './services/get-rooms.service';
+import { DoctorPatientListComponent } from './doctor-patient-list/doctor-patient-list.component';
 
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'login', component: AuthPageComponent },
-  { path: 'manage-reservations', canActivate: [AuthGuardService], component: ManageReservationsComponent },
-  { path: 'user-reservations', canActivate: [AuthGuardService], component: UserReservationsComponent },
-  { path: 'browse-rooms',canActivate: [AuthGuardService], component: BrowseRoomsComponent},
-  { path: 'room-layout',canActivate: [AuthGuardService], component: RoomsLayoutComponent},
-  { path: 'make-reservations',canActivate: [AuthGuardService], component: MakeReservationsComponent}
+  { path: 'doctor-patient-list', canActivate: [AuthGuardService], component: DoctorPatientListComponent },
+
 ];
 
 @NgModule({
@@ -50,7 +48,8 @@ const appRoutes: Routes = [
     MakeReservationsComponent,
     NavBarComponent,
     UserReservationsComponent,
-    SpreadsheetComponent
+    SpreadsheetComponent,
+    DoctorPatientListComponent
   ],
   imports: [
     MaterializeModule,

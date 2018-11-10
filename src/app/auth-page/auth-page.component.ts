@@ -69,7 +69,7 @@ export class AuthPageComponent implements OnInit {
       username: '',
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
-      isMedic: false
+      medic: false
     };
     if (!this.loginForm.get('email').valid) {
       this.errMsg = 'Invalid email!';
@@ -123,7 +123,7 @@ export class AuthPageComponent implements OnInit {
       username: this.registerForm.value.username,
       email: this.registerForm.value.email,
       password: this.registerForm.value.password,
-      isMedic: false
+      medic: false
     };
     if(!this.registerForm.get('username').valid) {
       this.myUserValidation = 'invalid';
@@ -147,7 +147,7 @@ export class AuthPageComponent implements OnInit {
       this.myPasswordValidator = 'valid';
       this.myUserValidation = 'valid';
       this.errMsg = '';
-      if ($('#doctor').is(":checked")) this.user.isMedic = true;
+      if ($('#doctor').is(":checked")) this.user.medic = true;
       console.log(this.user);
       
       this.auth.register(this.user).subscribe(
