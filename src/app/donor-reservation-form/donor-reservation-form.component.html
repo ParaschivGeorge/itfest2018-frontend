@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col m6">
+      <form [formGroup]="calendarForm">
+        <label for="calendar">Date</label>
+        <input id ="calendar" formControlName="calendar" type="text" (ngModelChange)="dateChanged()" [(ngModel)]="date" name="datepicker" materialize="pickadate" [materializeParams]="params"/>
+      </form>
+      
+     <form *ngIf="this.calendarForm.valid" [formGroup]="timeForm" >
+        <label for="hour">Hour</label>
+        <select [style.display]="'block'" id="hour" name="hour" formControlName="hour">
+          <option *ngFor="let hour1 of getAvailableReservations()" [ngValue]="hour1.id">{{hour1.hour}}</option>
+        </select>
+      </form>
+      <button class="btn btn-light" *ngIf="timeForm" (click)="saveReservation()">Create reservation</button>
+      <p *ngIf="!timeForm.valid">Please select an hour!</p>
+    </div>
+    <div div class="col m6">
+      <div class="row row-no-white" *ngFor="let hour of hours">
+          <div class="col s2 color">{{hour.hour}}</div>
+          <div class="col s10 color" [style.background-color]="isReserved(hour.id) ? 'red' : 'white'">
+      </div>
+    </div>
+  </div>
+</div>
