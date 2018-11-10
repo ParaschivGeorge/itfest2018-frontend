@@ -8,7 +8,7 @@
     text-align: center;
     line-height: 50px;
     font-size: 28px;
-    background-color: dodgerblue;
+    background-color: #61AA25;
     color: white;
     padding: 0;
 }
@@ -48,7 +48,7 @@
     padding: 0 !important;
     border-bottom: 2px solid dodgerblue;
     
-    color: dodgerblue;
+    color: red;
     text-shadow: 1px 1px 2px #2e6500;
     font-family: "Times New Roman", Times, serif;
     font-size: 20px;

@@ -3,6 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { User } from '../objects/User';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { log } from 'util';
 declare var $:any;
 
 @Component({
@@ -32,7 +33,7 @@ export class AuthPageComponent implements OnInit {
   registerForm: FormGroup;
   show = false;
   constructor(private auth: AuthService, private render: Renderer2, private router:Router) { }
-
+  doctor = false;
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -43,7 +44,6 @@ export class AuthPageComponent implements OnInit {
       'password' : new FormControl(null, Validators.required),
       'email' : new FormControl(null, [Validators.email, Validators.required]),
       'username' : new FormControl(null, Validators.required),
-      'doctor' : new FormControl(null, Validators.required)
     });
   }
 
@@ -68,7 +68,8 @@ export class AuthPageComponent implements OnInit {
     this.user = {
       username: '',
       email: this.loginForm.value.email,
-      password: this.loginForm.value.password
+      password: this.loginForm.value.password,
+      medic: false
     };
     if (!this.loginForm.get('email').valid) {
       this.errMsg = 'Invalid email!';
@@ -89,7 +90,8 @@ export class AuthPageComponent implements OnInit {
       this.auth.login(this.user).subscribe(
         resp => {
           console.log(resp);
-          this.router.navigate(['/manage-reservations']);
+          if (resp.type == "MEDIC") this.router.navigate(['/doctor-patient-list']);
+          else this.router.navigate(['/donor-data']);
         },
         err => {
           this.errMsg = err.error;
@@ -114,12 +116,15 @@ export class AuthPageComponent implements OnInit {
   }
 
   register() {
+   
+    
     this.show = false;
     this.moveTitleBar(this.loginPiky);
     this.user = {
-      username: '',
+      username: this.registerForm.value.username,
       email: this.registerForm.value.email,
       password: this.registerForm.value.password,
+      medic: false
     };
     if(!this.registerForm.get('username').valid) {
       this.myUserValidation = 'invalid';
@@ -137,14 +142,15 @@ export class AuthPageComponent implements OnInit {
       this.show = true;
       this.myPasswordValidator = 'invalid';
       this.shakeFrom(); 
-    } else if('') {
-
-    } else if (this.registerForm.valid) {
+    }  else if (this.registerForm.valid) {
       this.moveTitleBar(this.loginPiky);
       this.myEmailValidator = 'valid';
       this.myPasswordValidator = 'valid';
       this.myUserValidation = 'valid';
       this.errMsg = '';
+      if ($('#doctor').is(":checked")) this.user.medic = true;
+      console.log(this.user);
+      
       this.auth.register(this.user).subscribe(
         (resp) => {
           console.log(resp);

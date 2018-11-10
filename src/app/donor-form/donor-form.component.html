@@ -1,0 +1,18 @@
+<div class="myNav">
+    <h5 *ngIf="donorForm.valid"> Fill in the form to see if you can donate blood</h5>
+    <h5 *ngIf="!donorForm.valid"> We're sorry but you can't donate blood at this time!</h5>
+</div>
+<div class="container">
+  <br>
+  <form [formGroup]="donorForm" (ngSubmit)="onSubmit()" *ngIf="donorForm">
+    <div formArrayName="questions">
+      <p *ngFor="let question of questions; let i = index">
+        <input type="checkbox" [formControlName]="i" [id]="i"/>
+        <label [for]="i">{{question}}</label>          
+      </p>
+    </div>
+    <br>  
+    <button type="submit" class="btn btn-light" [class.disabled]="!donorForm.valid" style="display: block; margin: 0 auto;">Submit</button>
+
+  </form>
+</div>

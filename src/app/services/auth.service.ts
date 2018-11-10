@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { LoginResponse } from '../objects/loginResponse';
 import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
@@ -13,7 +14,7 @@ export class AuthService {
   token: string;
   userStatus = false;
 
-  constructor(private http:HttpClient) {}
+  constructor(private http:HttpClient, private router:Router) {}
 
   isLogedIn() {
     if ( localStorage.getItem('token') !=null )
@@ -26,18 +27,17 @@ export class AuthService {
    return this.http.post(environment.apiUrl + '/register', user);
   }
 
-  private logUser(token, user){
+  private logUser(user){
     this.userStatus = true;
-    this.token = token;
-    localStorage.setItem('token', token);
-    localStorage.setItem('email', user.email);
-
-    return this.userStatus;
+    this.token = user.token;
+    localStorage.setItem('token', user.token);
+    localStorage.setItem('email', user.user.email);
+    return user.user;
   }
 
   login(user:User) {
     return this.http.post<LoginResponse>(environment.apiUrl + '/login', {email:user.email, password:user.password})
-      .map(resp => this.logUser(resp.token, user))
+      .map(resp => this.logUser(resp))
   }
 
   logout(){
@@ -45,7 +45,9 @@ export class AuthService {
       localStorage.clear();
       this.token = null;
       this.userStatus = false;
+      this.router.navigate(['/'])
     }
+
   }
 
 }

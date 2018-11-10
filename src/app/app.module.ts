@@ -15,27 +15,31 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { ReactiveFormsModule, FormControl, NgModel, FormsModule } from '@angular/forms';
 import { ManageReservationsComponent } from './manage-reservations/manage-reservations.component';
-import { UserReservationsComponent } from './user-reservations/user-reservations.component';
 import { BrowseRoomsComponent } from './browse-rooms/browse-rooms.component';
 import { RoomsLayoutComponent } from './rooms-layout/rooms-layout.component';
-import { MakeReservationsComponent } from './make-reservations/make-reservations.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { SpreadsheetComponent } from './spreadsheet/spreadsheet.component';
 import { GetReservationsService } from './services/get-reservations.service';
 import { AuthInterceptor } from './interceptor';
 import { GetRoomsService } from './services/get-rooms.service';
 import { SpitalDeviceComponent } from './spital-device/spital-device.component';
 import { DatePipe } from '@angular/common';
+import { DoctorPatientListComponent } from './doctor-patient-list/doctor-patient-list.component';
+import { UsersService } from './services/users.service';
+import { UserItemComponent } from './user-item/user-item.component';
+import { SearchByUserNamePipe } from './search-by-user-name.pipe';
+import { UserAnalyseComponent } from './user-analyse/user-analyse.component';
+import { DonorFormComponent } from './donor-form/donor-form.component';
+import { DonorReservationFormComponent } from './donor-reservation-form/donor-reservation-form.component';
+import { DonorDataComponent } from './donor-data/donor-data.component';
 
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'login', component: AuthPageComponent },
-  { path: 'manage-reservations', canActivate: [AuthGuardService], component: ManageReservationsComponent },
-  { path: 'user-reservations', canActivate: [AuthGuardService], component: UserReservationsComponent },
-  { path: 'browse-rooms',canActivate: [AuthGuardService], component: BrowseRoomsComponent},
-  { path: 'room-layout',canActivate: [AuthGuardService], component: RoomsLayoutComponent},
-  { path: 'make-reservations',canActivate: [AuthGuardService], component: MakeReservationsComponent},
+  { path: 'doctor-patient-list', canActivate: [AuthGuardService], component: DoctorPatientListComponent },
+  { path: 'donor-form', canActivate: [AuthGuardService], component: DonorFormComponent },
+  { path: 'donor-reservartion', canActivate: [AuthGuardService], component: DonorReservationFormComponent },
+  { path: 'donor-data', canActivate: [AuthGuardService], component: DonorDataComponent },
   { path: 'spital', component: SpitalDeviceComponent},
 ];
 
@@ -47,13 +51,17 @@ const appRoutes: Routes = [
     FeedComponent,
     AuthPageComponent,
     ManageReservationsComponent,
-    UserReservationsComponent,
     BrowseRoomsComponent,
     RoomsLayoutComponent,
-    MakeReservationsComponent,
     NavBarComponent,
-    UserReservationsComponent,
-    SpreadsheetComponent,
+    DoctorPatientListComponent,
+    UserItemComponent,
+    SearchByUserNamePipe,
+    UserAnalyseComponent,
+    DoctorPatientListComponent,
+    DonorFormComponent,
+    DonorReservationFormComponent,
+    DonorDataComponent,
     SpitalDeviceComponent
   ],
   imports: [
@@ -67,7 +75,7 @@ const appRoutes: Routes = [
     FormsModule
   ],
 
-  providers: [GetBgService, AuthGuardService, AuthService, NgModel, GetReservationsService, GetRoomsService, DatePipe,
+  providers: [GetBgService, AuthGuardService, AuthService, NgModel, GetReservationsService, GetRoomsService, UsersService, DatePipe,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
