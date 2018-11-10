@@ -25,12 +25,14 @@ import { GetReservationsService } from './services/get-reservations.service';
 import { AuthInterceptor } from './interceptor';
 import { GetRoomsService } from './services/get-rooms.service';
 import { DoctorPatientListComponent } from './doctor-patient-list/doctor-patient-list.component';
+import { DonorFormComponent } from './donor-form/donor-form.component';
 
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'login', component: AuthPageComponent },
   { path: 'doctor-patient-list', canActivate: [AuthGuardService], component: DoctorPatientListComponent },
+  { path: 'donor-form', canActivate: [AuthGuardService], component: DonorFormComponent },
 
 ];
 
@@ -49,7 +51,8 @@ const appRoutes: Routes = [
     NavBarComponent,
     UserReservationsComponent,
     SpreadsheetComponent,
-    DoctorPatientListComponent
+    DoctorPatientListComponent,
+    DonorFormComponent
   ],
   imports: [
     MaterializeModule,

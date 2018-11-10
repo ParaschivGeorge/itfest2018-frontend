@@ -1,0 +1,12 @@
+<div class="container">
+  <form [formGroup]="donorForm" (ngSubmit)="onSubmit()" *ngIf="donorForm">
+    <div formArrayName="questions">
+      <p *ngFor="let question of questions; let i = index">
+        <input type="checkbox" [formControlName]="i" [id]="i"/>
+        <label [for]="i">{{question}}</label>          
+      </p>
+    </div>
+    <button type="submit" class="btn btn-light" style="display: block; margin: 0 auto;">Submit</button>
+    <p *ngIf="!donorForm.valid">You can't donate blood!</p>
+  </form>
+</div>
